@@ -5,10 +5,6 @@
 
 ## algorithm <a name="algorithm"></a>
 - data_structure
-- recursion
-- dynamic_programming
-- search
-- sort
 
 ## deep-learning <a name="deep-learning"></a>
 - [x] YOLOv8

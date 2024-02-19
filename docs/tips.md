@@ -27,12 +27,6 @@ source ~/.bashrc
 pip install xxx -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
-### PowerShell adds Anaconda prompt
-```
-conda init powershell
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-```
-
 ## WSL <a name="wsl"></a>
 ### Install wsl and Export the disk
 ```
