@@ -12,42 +12,38 @@
 namespace linked_list {
 namespace sequential_list {
 
-class SqList{
-    public:
-        //静态分配
-        int data[10];
-        int length;
-    public:
-        void InitList(SqList &L);
+// struct SqList {
+//     //静态分配
+//     int data[10];
+//     int length;
+// };
+
+struct SeqList {
+    //动态分配
+    //动态申请，释放内存空间
+    int *data; //指针指向顺序表第一个元素
+    int MaxSize;
+    int length;
 };
 
-void SqList::InitList(SqList &L) {
-    for (int i = 0; i < 10; i++) {
-        L.data[i] = 0;
-    }
-    L.length = 0;
-}
+// void InitList(SqList &L) {
+//     for (int i = 0; i < 10; i++) {
+//         L.data[i] = 0;
+//     }
+//     L.length = 0;
+// }
 
-class SeqList {
-    public:
-        //动态分配
-        //动态申请，释放内存空间
-        int *data; //指针指向顺序表第一个元素
-        int MaxSize;
-        int length;
-    public:
-        void InitList(SeqList &L);
-        void IncreaseSize(SeqList &L, int len);
-        bool Insert(SeqList &L, int i, int e);
-};
+// int GetElem(SqList L, int i) {
+//     return L.data[i - 1];
+// }
 
-void SeqList::InitList(SeqList &L) {
+void InitList(SeqList &L) {
     L.data = (int *) malloc(sizeof(int) * InitSize);
     L.MaxSize = InitSize;
     L.length = 0;
 }
 
-void SeqList::IncreaseSize(SeqList &L, int len) {
+void IncreaseSize(SeqList &L, int len) {
     int *p = L.data;
     L.data = (int *) malloc(sizeof(int) * (L.MaxSize + len));
     for (int i = 0; i < L.length; i++) {
@@ -57,13 +53,10 @@ void SeqList::IncreaseSize(SeqList &L, int len) {
     free(p);
 }
 
-bool SeqList::Insert(SeqList &L, int i, int e) {
-    if (L.length >= L.MaxSize) {
-        return false;
-    }
-    if (i < 1 || i > L.length + 1) {
-        return false;
-    }
+//O(n)
+bool Insert(SeqList &L, int i, int e) {
+    if (L.length >= L.MaxSize) {return false;}
+    if (i < 1 || i > L.length + 1) {return false;}
     for (int j = L.length; j >= i; j--){
         L.data[j] = L.data[j - 1];
     }
@@ -72,21 +65,48 @@ bool SeqList::Insert(SeqList &L, int i, int e) {
     return true;
 }
 
+//o(n)
+bool Delete(SeqList &L, int i, int &e) {
+    if (i < 1 || i > L.length) {return false;}
+    e = L.data[i - 1];
+    for (int j = i; j < L.length; j++) {
+        L.data[j - 1] = L.data[j];
+    }
+    L.length --;
+    return true;
+}
+
+//O(1)
+int GetElem(SeqList L, int i) {
+    return L.data[i - 1];
+}
+
+//O(n)
+int LocateElem(SeqList L, int e) {
+    for (int i = 0; i < L.length; i++) {
+        if (L.data[i] == e) {
+            return i + 1;
+        }
+    }
+    return 0;
+}
 
 } // namespace sequential_list
 } // namespace linked_list
 
 int main() {
     linked_list::sequential_list::SeqList L;
-    L.InitList(L);
-    L.Insert(L,1,5);
-    L.Insert(L,2,2);
-    L.Insert(L,3,0);
-    L.Insert(L,2,66);
+    
+    InitList(L);
 
+    Insert(L,1,5);
+    Insert(L,2,2);
+    Insert(L,3,0);
+    Insert(L,2,66);
     for (int i = 0; i < L.length; i++) {
         std::cout << L.data[i] << std::endl;
     }
+    std::cout << LocateElem(L,0);
     return 0;
 
 }
