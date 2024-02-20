@@ -7,55 +7,66 @@
 
 #include <iostream>
 #include <stdlib.h>
-// #define MaxSize 10
 #define InitSize 10
 
-namespace data_structure {
 namespace linked_list {
 namespace sequential_list {
 
-//静态分配
-// typedef struct {
-//     int data[MaxSize];
-//     int length;
-// }SqList;
+class SqList{
+    public:
+        //静态分配
+        int data[10];
+        int length;
+    public:
+        void InitList(SqList &L);
+};
 
-// void InitList(SqList &L) {
-//     for (int i = 0; i < MaxSize; i++)
-//         L.data[i] = 0;
-//     L.length = 0;
-// }
+void SqList::InitList(SqList &L) {
+    for (int i = 0; i < 10; i++) {
+        L.data[i] = 0;
+    }
+    L.length = 0;
+}
 
-//动态分配
-//动态申请，释放内存空间
-typedef struct {
-    int *data;
-    int MaxSize;
-    int length;
-}SeqList;
+class SeqList {
+    public:
+        //动态分配
+        //动态申请，释放内存空间
+        int *data; //指针指向顺序表第一个元素
+        int MaxSize;
+        int length;
+    public:
+        void InitList(SeqList &L);
+        void IncreaseSize(SeqList &L, int len);
+        bool Insert(SeqList &L, int i, int e);
+};
 
-void InitList(SeqList &L) {
+void SeqList::InitList(SeqList &L) {
     L.data = (int *) malloc(sizeof(int) * InitSize);
     L.MaxSize = InitSize;
     L.length = 0;
 }
 
-void IncreaseSize(SeqList &L, int len) {
+void SeqList::IncreaseSize(SeqList &L, int len) {
     int *p = L.data;
     L.data = (int *) malloc(sizeof(int) * (L.MaxSize + len));
-    for (int i = 0; i < L.length; i++)
+    for (int i = 0; i < L.length; i++) {
         L.data[i] = p[i];
+    }
     L.MaxSize = L.MaxSize + len;
     free(p);
 }
 
-bool Insert(SeqList &L, int i, int e) {
-    if (L.length >= L.MaxSize)
+bool SeqList::Insert(SeqList &L, int i, int e) {
+    if (L.length >= L.MaxSize) {
         return false;
-    if (i < 1 || i > L.length + 1)
+    }
+    if (i < 1 || i > L.length + 1) {
         return false;
-    for (int j = L.length; j >= i; j--)
+    }
+    for (int j = L.length; j >= i; j--){
         L.data[j] = L.data[j - 1];
+    }
     L.data[i - 1] = e;
     L.length++;
     return true;
@@ -64,8 +75,18 @@ bool Insert(SeqList &L, int i, int e) {
 
 } // namespace sequential_list
 } // namespace linked_list
-} // namespace data_structure
 
 int main() {
-    
+    linked_list::sequential_list::SeqList L;
+    L.InitList(L);
+    L.Insert(L,1,5);
+    L.Insert(L,2,2);
+    L.Insert(L,3,0);
+    L.Insert(L,2,66);
+
+    for (int i = 0; i < L.length; i++) {
+        std::cout << L.data[i] << std::endl;
+    }
+    return 0;
+
 }
