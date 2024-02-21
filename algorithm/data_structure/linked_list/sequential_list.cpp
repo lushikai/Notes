@@ -95,7 +95,8 @@ int LocateElem(SeqList L, int e) {
 } // namespace linked_list
 
 int main() {
-    linked_list::sequential_list::SeqList L;
+    using namespace linked_list::sequential_list;
+    SeqList L;
     
     InitList(L);
 
