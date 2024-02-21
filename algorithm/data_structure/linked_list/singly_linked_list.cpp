@@ -73,13 +73,16 @@ bool Insert(LinkList &L, int i, int e) {
         p = p->next;
         j++;
     }
-    // if (p == NULL) {return false;}
-    // LNode *s = (LNode *) malloc(sizeof(LNode));
-    // s->data = e;
-    // s->next = p->next;
-    // p->next = s;
-    // return true;
-    return InsertNextNode(p, e);
+    // LNode *GetElem(LinkList L, int i);
+    // LNode *p = GetElem(L, i - 1);
+    if (p == NULL) {return false;}
+    LNode *s = (LNode *) malloc(sizeof(LNode));
+    s->data = e;
+    s->next = p->next;
+    p->next = s;
+    return true;
+    // bool InsertNextNode(LNode *p, int e);
+    // return InsertNextNode(p, e);
 }
 
 //O(1)
@@ -115,6 +118,8 @@ bool Delete(LinkList &L, int i, int &e) {
         p = p->next;
         j++;
     }
+    // LNode *GetElem(LinkList L, int i);
+    // LNode *p = GetElem(L, i - 1);
     if (p == NULL) {return false;}
     if (p->next == NULL) {return false;}
     LNode *q = p->next;
@@ -133,6 +138,74 @@ bool DeleteNode(LNode *p) {
     return true;
 }
 
+//O(n)
+LNode *GetElem(LinkList L, int i) {
+    if (i < 0) {return NULL;}
+    LNode *p;
+    int j = 0;
+    p = L;
+    while (p != NULL && j < i) {
+        p = p->next;
+        j++;
+    }
+    return p;
+}
+
+//O(n)
+LNode *LocateElem(LinkList L, int e) {
+    LNode *p = L->next;
+    while (p != NULL && p->data != e) {
+        p = p->next;
+    }
+    return p;
+}
+
+//O(n)
+int Length(LinkList L) {
+    int len = 0;
+    LNode *p = L;
+    while (p->next != NULL) {
+        p = p->next;
+        len++;
+    }
+    return len;
+}
+
+//尾插法
+//O(n)
+LinkList TailInsert(LinkList &L) {
+    int x;
+    L = (LinkList)malloc(sizeof(LNode));
+    LNode *s, *r = L; //r为表尾指针
+    std::cin >> x;
+    while(x != '\n') {
+        s = (LNode *)malloc(sizeof(LNode));
+        s->data = x;
+        r->next = s;
+        r = s; //r指向新的表尾结点
+        std::cin >> x;
+    }
+    r->next = NULL;
+    return L;
+}
+
+//头插法
+LinkList HeadInsert(LinkList &L) {
+    LNode *s;
+    int x;
+    L = (LNode *)malloc(sizeof(LNode));
+    L->next = NULL;
+    std::cin >> x;
+    while (x != '\n') {
+        s = (LNode *)malloc(sizeof(LNode));
+        s->data = x;
+        s->next = L->next;
+        L->next = s;
+        std::cin >> x;
+    }
+    return L;
+}
+
 } // namespace singly_linked_list
 } // namespace linked_list
 
@@ -141,9 +214,11 @@ int main() {
     LinkList L;
 
     InitList(L);
-    std::cout << isEmpty(L);
+    std::cout << isEmpty(L) << std::endl;
     Insert(L,1,2);
     Insert(L,2,33);
     Insert(L,3,45);
+
+    std::cout << Length(L);
 
 }
