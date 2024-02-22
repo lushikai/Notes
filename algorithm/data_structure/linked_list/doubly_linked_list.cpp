@@ -1,5 +1,5 @@
 /**
- * 
+ * 链表不具备随机存取特性，查找只能通过顺序遍历实现
 */
 
 #include <iostream>
@@ -22,7 +22,41 @@ bool InitDLinkList(DLinkList &L) {
     return true;
 }
 
+bool isEmpty(DLinkList L) {
+    if (L->next == NULL) {return true;}
+    else {return false;}
+}
 
+bool InsertNextDNode(DNode *p, DNode *s) {
+    if (p == NULL || s == NULL) {return false;}
+    s->next = p->next;
+    if (p->next != NULL) {
+        p->next->prior = s;
+    }
+    s->prior = p;
+    p->next = s;
+    return true;
+}
+
+bool DeleteNextDNode(DNode *p) {
+    if (p == NULL) {return false;}
+    DNode *q = p->next;
+    if (q == NULL) {return false;}
+    p->next = q->next;
+    if (q->next != NULL) {
+        q->next->prior = p;
+    }
+    free(q);
+    return true;
+}
+
+void DestroyList(DLinkList &L) {
+    while (L->next != NULL) {
+        DeleteNextDNode(L);
+    }
+    free(L);
+    L = NULL;
+}
 
 } // namespace doubly_linked_list
 } // namespace linked_list
@@ -32,4 +66,5 @@ int main() {
     DLinkList L;
 
     InitDLinkList(L);
+
 }
