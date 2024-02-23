@@ -5,7 +5,6 @@
 #include <iostream>
 #define MaxSize 10
 
-namespace queue {
 namespace sequential_queue {
 
 typedef struct {
@@ -43,10 +42,9 @@ bool GetHead(SqQueue Q, int &e) {
 }
 
 } // namespace sequential_queue
-} // namespace queue
 
 int main() {
-    using namespace queue::sequential_queue;
+    using namespace sequential_queue;
     SqQueue Q;
     InitQueue(Q);
 

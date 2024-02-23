@@ -9,14 +9,29 @@
 #include <stdlib.h>
 #define InitSize 10
 
-namespace linked_list {
 namespace sequential_list {
+namespace static_allocation {
 
-// struct SqList {
-//     //静态分配
-//     int data[10];
-//     int length;
-// };
+struct SqList {
+    //静态分配
+    int data[10];
+    int length;
+};
+
+void InitList(SqList &L) {
+    for (int i = 0; i < 10; i++) {
+        L.data[i] = 0;
+    }
+    L.length = 0;
+}
+
+int GetElem(SqList L, int i) {
+    return L.data[i - 1];
+}
+
+} // namespace static_allocation
+
+namespace dynamic_allocation {
 
 struct SeqList {
     //动态分配
@@ -25,17 +40,6 @@ struct SeqList {
     int MaxSize;
     int length;
 };
-
-// void InitList(SqList &L) {
-//     for (int i = 0; i < 10; i++) {
-//         L.data[i] = 0;
-//     }
-//     L.length = 0;
-// }
-
-// int GetElem(SqList L, int i) {
-//     return L.data[i - 1];
-// }
 
 void InitList(SeqList &L) {
     L.data = (int *) malloc(sizeof(int) * InitSize);
@@ -91,11 +95,11 @@ int LocateElem(SeqList L, int e) {
     return 0;
 }
 
+} // namespace dynamic_allocation
 } // namespace sequential_list
-} // namespace linked_list
 
 int main() {
-    using namespace linked_list::sequential_list;
+    using namespace sequential_list::dynamic_allocation;
     SeqList L;
     
     InitList(L);

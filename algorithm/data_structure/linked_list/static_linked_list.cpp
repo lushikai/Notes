@@ -8,7 +8,6 @@
 #include <iostream>
 #define MaxSize 10
 
-namespace linked_list {
 namespace static_linked_list {
 
 // struct Node {
@@ -22,10 +21,9 @@ typedef struct {
 } SLinkList[MaxSize];
 
 } // namespace static_linked_list
-} // namespace linked_list
 
 int main() {
-    using namespace linked_list::static_linked_list;
+    using namespace static_linked_list;
 
     // struct Node a[MaxSize];
 

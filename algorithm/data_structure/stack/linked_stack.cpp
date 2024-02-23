@@ -1,6 +1,5 @@
 #include <iostream>
 
-namespace stack {
 namespace linked_stack {
 
 typedef struct LinkNode {
@@ -9,9 +8,8 @@ typedef struct LinkNode {
 }*LinkStack;
 
 } // namespace linked_stack
-} // namespace stack
 
 int main() {
-    using namespace stack::linked_stack;
+    using namespace linked_stack;
     LinkStack S;
 }

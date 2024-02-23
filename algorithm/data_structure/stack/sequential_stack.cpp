@@ -6,7 +6,6 @@
 #include <iostream>
 #define MaxSize 10
 
-namespace stack {
 namespace sequential_stack {
 
 typedef struct {
@@ -53,10 +52,9 @@ bool GetTop(SqStack S, int &e) {
 }
 
 } // namespace sequential_stack
-} // namespace stack
 
 int main() {
-    using namespace stack::sequential_stack;
+    using namespace sequential_stack;
 
     SqStack S;
     InitStack(S);

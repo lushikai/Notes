@@ -1,20 +1,13 @@
 #include <iostream>
 #include <stdlib.h>
 
-namespace linked_list {
 namespace circular_linked_list {
+namespace singly_lined_list {
 
-//单链表
 typedef struct LNode {
     int data;
     LNode *next;
 }LNode, *LinkList;
-
-//双链表
-typedef struct DNode {
-    int data;
-    DNode *prior, *next;
-}DNode, *DLinkList;
 
 bool InitList(LinkList &L) {
     L = (LNode *)malloc(sizeof(LNode));
@@ -32,6 +25,15 @@ bool isTail(LinkList L, LNode *p) {
     if (p->next == L) {return true;}
     else {return false;}
 }
+
+} // namespace singly_lined_list
+
+namespace doubly_linked_list {
+
+typedef struct DNode {
+    int data;
+    DNode *prior, *next;
+}DNode, *DLinkList;
 
 bool InitDLinkList(DLinkList &L) {
     L = (DNode *)malloc(sizeof(DNode));
@@ -51,11 +53,11 @@ bool isTail(DLinkList L, DNode *p) {
     else {return false;}
 }
 
+} // namespace doubly_linked_list
 } // namespace circular_linked_list
-} // namespace linked_list
 
 int main() {
-    using namespace linked_list::circular_linked_list;
+    using namespace circular_linked_list::singly_lined_list;
 
     LinkList L;
     InitList(L);
