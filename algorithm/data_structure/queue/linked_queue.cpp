@@ -37,6 +37,19 @@ void EnQueue(LinkQueue &Q, int e) {
     }
 }
 
+bool DeQueue(LinkQueue &Q, int &e) {
+    if (Q.front == NULL) {return false;}
+    LinkNode *p = Q.front;
+    e = p->data;
+    Q.front = p->next;
+    if (Q.rear == p) {
+        Q.front = NULL;
+        Q.rear = NULL;
+    }
+    free(p);
+    return true;
+}
+
 } // namespace without_head_node
 
 namespace with_head_node {
@@ -60,7 +73,7 @@ bool isEmpty(LinkQueue Q) {
     else {return false;}
 }
 
-bool EnQueue(LinkQueue &Q, int e) {
+void EnQueue(LinkQueue &Q, int e) {
     LinkNode *s = (LinkNode *)malloc(sizeof(LinkNode));
     s->data = e;
     s->next = NULL;
@@ -68,8 +81,16 @@ bool EnQueue(LinkQueue &Q, int e) {
     Q.rear = s;
 }
 
-bool DeQueue() {
-
+bool DeQueue(LinkQueue &Q, int &e) {
+    if (Q.front == Q.rear) {return false;}
+    LinkNode *p = Q.front->next;
+    e = p->data;
+    Q.front->next = p->next;
+    if (Q.rear == p) {
+        Q.rear = Q.front;
+    }
+    free(p);
+    return true;
 }
 
 } // namespace with_head_node
@@ -80,5 +101,8 @@ int main() {
 
     LinkQueue Q;
     InitQueue(Q);
+
+    EnQueue(Q,5);
+    EnQueue(Q,2);
 
 }
