@@ -6,13 +6,13 @@
 #include <stdlib.h>
 
 namespace doubly_linked_list {
-namespace with_head_node {
 
 typedef struct DNode {
     int data;
     DNode *prior, *next;
 }DNode, *DLinkList;
 
+//带头结点
 bool InitDLinkList(DLinkList &L) {
     L = (DNode *)malloc(sizeof(DNode));
     if (L == NULL) {return false;}
@@ -57,11 +57,10 @@ void DestroyList(DLinkList &L) {
     L = NULL;
 }
 
-} // namespace with_head_node
 } // namespace doubly_linked_list
 
 int main() {
-    using namespace doubly_linked_list::with_head_node;
+    using namespace doubly_linked_list;
     DLinkList L;
 
     InitDLinkList(L);

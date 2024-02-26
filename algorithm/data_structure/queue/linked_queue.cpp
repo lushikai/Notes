@@ -2,7 +2,6 @@
 #include <stdlib.h>
 
 namespace linked_queue {
-namespace without_head_node {
 
 typedef struct LinkNode {
     int data;
@@ -13,56 +12,45 @@ typedef struct {
     LinkNode *rear, *front;
 }LinkQueue;
 
-void InitQueue(LinkQueue &Q) {
-    Q.front = NULL;
-    Q.rear = NULL;
-}
+//不带头结点
+// void InitQueue(LinkQueue &Q) {
+//     Q.front = NULL;
+//     Q.rear = NULL;
+// }
 
-bool isEmpty(LinkQueue Q) {
-    if (Q.front == NULL) {return true;}
-    else {return false;}
-}
+// bool isEmpty(LinkQueue Q) {
+//     if (Q.front == NULL) {return true;}
+//     else {return false;}
+// }
 
-void EnQueue(LinkQueue &Q, int e) {
-    LinkNode *s = (LinkNode *)malloc(sizeof(LinkNode));
-    s->data = e;
-    s->next = NULL;
-    if (Q.front == NULL) {
-        Q.front = s;
-        Q.rear = s;
-    }
-    else {
-        Q.rear->next = s;
-        Q.rear = s;
-    }
-}
+// void EnQueue(LinkQueue &Q, int e) {
+//     LinkNode *s = (LinkNode *)malloc(sizeof(LinkNode));
+//     s->data = e;
+//     s->next = NULL;
+//     if (Q.front == NULL) {
+//         Q.front = s;
+//         Q.rear = s;
+//     }
+//     else {
+//         Q.rear->next = s;
+//         Q.rear = s;
+//     }
+// }
 
-bool DeQueue(LinkQueue &Q, int &e) {
-    if (Q.front == NULL) {return false;}
-    LinkNode *p = Q.front;
-    e = p->data;
-    Q.front = p->next;
-    if (Q.rear == p) {
-        Q.front = NULL;
-        Q.rear = NULL;
-    }
-    free(p);
-    return true;
-}
+// bool DeQueue(LinkQueue &Q, int &e) {
+//     if (Q.front == NULL) {return false;}
+//     LinkNode *p = Q.front;
+//     e = p->data;
+//     Q.front = p->next;
+//     if (Q.rear == p) {
+//         Q.front = NULL;
+//         Q.rear = NULL;
+//     }
+//     free(p);
+//     return true;
+// }
 
-} // namespace without_head_node
-
-namespace with_head_node {
-
-typedef struct LinkNode {
-    int data;
-    LinkNode *next;
-}LinkNode;
-
-typedef struct {
-    LinkNode *rear, *front;
-}LinkQueue;
-
+//带头结点
 void InitQueue(LinkQueue &Q) {
     Q.front = Q.rear = (LinkNode *)malloc(sizeof(LinkNode));
     Q.front->next = NULL;
@@ -93,11 +81,10 @@ bool DeQueue(LinkQueue &Q, int &e) {
     return true;
 }
 
-} // namespace with_head_node
 } // namespace linked_queue
 
 int main() {
-    using namespace linked_queue::with_head_node;
+    using namespace linked_queue;
 
     LinkQueue Q;
     InitQueue(Q);

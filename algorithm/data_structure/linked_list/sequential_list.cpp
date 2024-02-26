@@ -10,28 +10,23 @@
 #define InitSize 10
 
 namespace sequential_list {
-namespace static_allocation {
 
-struct SqList {
-    //静态分配
-    int data[10];
-    int length;
-};
+// struct SqList {
+//     //静态分配
+//     int data[10];
+//     int length;
+// };
 
-void InitList(SqList &L) {
-    for (int i = 0; i < 10; i++) {
-        L.data[i] = 0;
-    }
-    L.length = 0;
-}
+// void InitList(SqList &L) {
+//     for (int i = 0; i < 10; i++) {
+//         L.data[i] = 0;
+//     }
+//     L.length = 0;
+// }
 
-int GetElem(SqList L, int i) {
-    return L.data[i - 1];
-}
-
-} // namespace static_allocation
-
-namespace dynamic_allocation {
+// int GetElem(SqList L, int i) {
+//     return L.data[i - 1];
+// }
 
 struct SeqList {
     //动态分配
@@ -95,11 +90,10 @@ int LocateElem(SeqList L, int e) {
     return 0;
 }
 
-} // namespace dynamic_allocation
 } // namespace sequential_list
 
 int main() {
-    using namespace sequential_list::dynamic_allocation;
+    using namespace sequential_list;
     SeqList L;
     
     InitList(L);

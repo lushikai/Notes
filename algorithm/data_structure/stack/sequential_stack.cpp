@@ -9,7 +9,7 @@
 namespace sequential_stack {
 
 typedef struct {
-    int data[MaxSize];
+    char data[MaxSize];
     int top;
 }SqStack;
 
@@ -29,7 +29,7 @@ bool isEmpty(SqStack S) {
     else {return false;}
 }
 
-bool Push(SqStack &S, int e) {
+bool Push(SqStack &S, char e) {
     if (S.top == MaxSize - 1) {return false;}
     // S.top += 1;
     // S.data[S.top] = e;
@@ -37,7 +37,7 @@ bool Push(SqStack &S, int e) {
     return true;
 }
 
-bool Pop(SqStack &S, int &e) {
+bool Pop(SqStack &S, char &e) {
     if (S.top == -1) {return false;}
     // e = S.data[S.top];
     // S.top -= 1;
@@ -45,7 +45,7 @@ bool Pop(SqStack &S, int &e) {
     return true;
 }
 
-bool GetTop(SqStack S, int &e) {
+bool GetTop(SqStack S, char &e) {
     if (S.top == -1) {return false;}
     e = S.data[S.top];
     return true;
@@ -55,13 +55,8 @@ bool GetTop(SqStack S, int &e) {
 
 int main() {
     using namespace sequential_stack;
-
     SqStack S;
-    InitStack(S);
-
-    Push(S,5);
-    Push(S,2);
-    Push(S,0);
-
+    
     
 }
+

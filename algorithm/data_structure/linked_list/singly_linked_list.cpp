@@ -9,54 +9,47 @@
 #include <stdlib.h>
 
 namespace singly_linked_list {
-namespace without_head_node {
 
 typedef struct LNode {
     int data; //数据域
     LNode *next; //指针域
 }LNode, *LinkList;
 
-bool InitList(LinkList &L) {
-    L = NULL;
-    return true;
-}
+//不带头结点
+// bool InitList(LinkList &L) {
+//     L = NULL;
+//     return true;
+// }
 
-bool isEmpty(LinkList L) {
-    return L == NULL;
-}
+// bool isEmpty(LinkList L) {
+//     return L == NULL;
+// }
 
-bool Insert(LinkList &L, int i, int e) {
-    if (i < 1) {return false;}
-    if (i == 1) {
-        LNode *s = (LNode*)malloc(sizeof(LNode));
-        s->data = e;
-        s->next = L;
-        L = s;
-        return true;
-    }
-    LNode *p;
-    int j = 1;
-    p = L;
-    while (p != NULL && j < i - 1) {
-        p = p->next;
-        j++;
-    }
-    if (p == NULL) {return false;}
-    LNode *s = (LNode *)malloc(sizeof(LNode));
-    s->data = e;
-    s->next = p->next;
-    p->next = s;
-    return true;
-}
-} // namespace without_head_node
+// bool Insert(LinkList &L, int i, int e) {
+//     if (i < 1) {return false;}
+//     if (i == 1) {
+//         LNode *s = (LNode*)malloc(sizeof(LNode));
+//         s->data = e;
+//         s->next = L;
+//         L = s;
+//         return true;
+//     }
+//     LNode *p;
+//     int j = 1;
+//     p = L;
+//     while (p != NULL && j < i - 1) {
+//         p = p->next;
+//         j++;
+//     }
+//     if (p == NULL) {return false;}
+//     LNode *s = (LNode *)malloc(sizeof(LNode));
+//     s->data = e;
+//     s->next = p->next;
+//     p->next = s;
+//     return true;
+// }
 
-namespace with_head_node {
-    
-typedef struct LNode {
-    int data; //数据域
-    LNode *next; //指针域
-}LNode, *LinkList;
-
+//带头结点
 bool InitList(LinkList &L) {
     L = (LNode *) malloc(sizeof(LNode));
     if (L == NULL) {return false;}
@@ -212,11 +205,10 @@ LinkList HeadInsert(LinkList &L) {
     return L;
 }
 
-} // namespace with_head_node
 } // namespace singly_linked_list
 
 int main() {
-    using namespace singly_linked_list::with_head_node;
+    using namespace singly_linked_list;
     LinkList L;
 
     InitList(L);
