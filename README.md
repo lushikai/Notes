@@ -8,7 +8,6 @@
 
 ## deep-learning <a name="deep-learning"></a>
 - [x] YOLOv8
-- [x] AB3DMOT
 
 ## principles-of-computer-composition <a name="pocc"></a>
 - Overview-of-computer-systems
