@@ -3,10 +3,11 @@
  * n个不同元素进栈，出栈元素不同排列的个数为[1/(n+1)]*C(2n,n)
 */
 
+#ifndef SEQUENTIAL_STACK_HPP_
+#define SEQUENTIAL_STACK_HPP_
+
 #include <iostream>
 #define MaxSize 10
-
-namespace sequential_stack {
 
 typedef struct {
     char data[MaxSize];
@@ -25,8 +26,7 @@ void InitStack(SqStack &S) {
 }
 
 bool isEmpty(SqStack S) {
-    if (S.top == -1) {return true;}
-    else {return false;}
+    return S.top == -1;
 }
 
 bool Push(SqStack &S, char e) {
@@ -38,7 +38,7 @@ bool Push(SqStack &S, char e) {
 }
 
 bool Pop(SqStack &S, char &e) {
-    if (S.top == -1) {return false;}
+    if (isEmpty(S)) {return false;}
     // e = S.data[S.top];
     // S.top -= 1;
     e = S.data[S.top--];
@@ -46,17 +46,9 @@ bool Pop(SqStack &S, char &e) {
 }
 
 bool GetTop(SqStack S, char &e) {
-    if (S.top == -1) {return false;}
+    if (isEmpty(S)) {return false;}
     e = S.data[S.top];
     return true;
 }
 
-} // namespace sequential_stack
-
-int main() {
-    using namespace sequential_stack;
-    SqStack S;
-    
-    
-}
-
+#endif // SEQUENTIAL_STACK_HPP_
