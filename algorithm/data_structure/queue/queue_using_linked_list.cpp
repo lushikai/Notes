@@ -1,7 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
 
-namespace linked_queue {
+namespace queue_using_linked_list {
 
 typedef struct LinkNode {
     int data;
@@ -81,10 +81,10 @@ bool DeQueue(LinkQueue &Q, int &e) {
     return true;
 }
 
-} // namespace linked_queue
+} // namespace queue_using_linked_list
 
 int main() {
-    using namespace linked_queue;
+    using namespace queue_using_linked_list;
 
     LinkQueue Q;
     InitQueue(Q);

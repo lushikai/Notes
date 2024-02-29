@@ -10,5 +10,5 @@
 */
 
 
-#include "sequential_stack.hpp"
+#include "stack_using_array.hpp"
 

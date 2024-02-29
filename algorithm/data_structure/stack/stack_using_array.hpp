@@ -3,8 +3,8 @@
  * n个不同元素进栈，出栈元素不同排列的个数为[1/(n+1)]*C(2n,n)
 */
 
-#ifndef SEQUENTIAL_STACK_HPP_
-#define SEQUENTIAL_STACK_HPP_
+#ifndef STACK_HPP_
+#define STACK_HPP_
 
 #include <iostream>
 #define MaxSize 10
@@ -51,4 +51,4 @@ bool GetTop(SqStack S, char &e) {
     return true;
 }
 
-#endif // SEQUENTIAL_STACK_HPP_
+#endif // STACK_HPP_

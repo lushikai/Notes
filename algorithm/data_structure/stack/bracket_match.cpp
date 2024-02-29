@@ -1,4 +1,4 @@
-#include "sequential_stack.hpp"
+#include "stack_using_array.hpp"
 
 bool bracketMatch(char str[], int length) {
     SqStack S;

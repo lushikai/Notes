@@ -5,7 +5,7 @@
 #include <iostream>
 #define MaxSize 10
 
-namespace sequential_queue {
+namespace queue_using_array {
 
 typedef struct {
     int data[MaxSize];
@@ -41,10 +41,10 @@ bool GetHead(SqQueue Q, int &e) {
     return true;
 }
 
-} // namespace sequential_queue
+} // namespace queue_using_array
 
 int main() {
-    using namespace sequential_queue;
+    using namespace queue_using_array;
     SqQueue Q;
     InitQueue(Q);
 

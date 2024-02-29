@@ -1,15 +1,15 @@
 #include <iostream>
 
-namespace linked_stack {
+namespace stack_using_linked_list {
 
 typedef struct LinkNode {
     int data;
     LinkNode *next;
 }*LinkStack;
 
-} // namespace linked_stack
+} // namespace stack_using_linked_list
 
 int main() {
-    using namespace linked_stack;
+    using namespace stack_using_linked_list;
     LinkStack S;
 }
