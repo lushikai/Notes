@@ -55,15 +55,42 @@ int Index(SString S, SString T) {
 
 /**
  * next[1] -> 0
- * 
+ * next[2] -> 1
 */
-void GetNext() {
-    
+void GetNext(SString T, int next[]) {
+    int i = 1, j = 0;
+    next[1] = 0;
+    while(i < T.length) {
+        if (j == 0 || T.ch[i] == T.ch[j]) {
+            ++i;
+            ++j;
+            next[i] = j;
+        }
+        else {
+            j = next[j];
+        }
+    }
+}
+
+//优化GetNext
+void GetNextVal(SString T, int next[]) {
+    int nextVal[T.length+1];
+    nextVal[1] = 0;
+    for (int j = 2;  j <= T.length; j++) {
+        if (T.ch[next[j]] == T.ch[j]) {
+            nextVal[j] = nextVal[next[j]];
+        }
+        else {
+            nextVal[j] = next[j];
+        }
+    }
 }
 
 //O(m+n)
-int KMP(SString S, SString T, int next[]) {
+int KMP(SString S, SString T) {
     int i = 1, j = 1;
+    int next[T.length+1];
+    GetNext(T,next);
     while(i <= S.length && j <= T.length) {
         if (j == 0 || S.ch[i] == T.ch[j]) {
             ++i;
@@ -79,8 +106,6 @@ int KMP(SString S, SString T, int next[]) {
     else {return 0;}
 }
 
-
-
 } // namespace string_using_array
 
 int main() {
@@ -88,7 +113,6 @@ int main() {
     SString str1 = {"helloWorld",10};
     SString str2 = {"World",5};
     std::cout << Index(str1, str2) << std::endl;
-    // std::cout << KMP(str1, str2) << std::endl;
+    std::cout << KMP(str1, str2) << std::endl;
 
-    
 }
