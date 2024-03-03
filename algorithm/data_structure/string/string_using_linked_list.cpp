@@ -7,7 +7,7 @@ typedef struct StringNode {
     StringNode *next;
 }StringNode, *String;
 
-}
+} // namespace string_using_linked_list
 
 int main() {
     using namespace string_using_linked_list;
