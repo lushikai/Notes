@@ -7,7 +7,8 @@
 - data_structure
 
 ## deep-learning <a name="deep-learning"></a>
-- [x] YOLOv8
+- YOLOv8
+- X-AnyLabeling
 
 ## principles-of-computer-composition <a name="pocc"></a>
 - Overview-of-computer-systems
