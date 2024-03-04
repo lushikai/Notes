@@ -12,6 +12,7 @@
 
 #include <iostream>
 #include <stdlib.h>
+#include "../queue/queue_using_linked_list.hpp"
 
 namespace binary_tree {
 
@@ -25,6 +26,56 @@ typedef struct BiTNode {
     BiTNode *parent; //三叉链表
 }BiTNode, *BiTree;
 
+ElemType visit(BiTree T) {
+    return T->data;
+}
+
+//O(h)
+void PreOrder(BiTree T) {
+    if (T != NULL) {
+        visit(T);
+        PreOrder(T->lChild);
+        PreOrder(T->rChild);
+    }
+}
+
+void InOrder(BiTree T) {
+    if (T != NULL) {
+        PreOrder(T->lChild);
+        visit(T);
+        PreOrder(T->rChild);
+    }
+}
+
+void PostOrder(BiTree T) {
+    if (T != NULL) {
+        PreOrder(T->lChild);
+        PreOrder(T->rChild);
+        visit(T);
+    }
+}
+
+void LevelOrder(BiTree T) {
+    LinkQueue Q;
+    InitQueue(Q);
+    BiTree p;
+    // EnQueue(Q, T);
+    while (!isEmpty(Q)) {
+        // DeQueue(Q, p);
+        visit(p);
+        
+    }
+
+}
+
+int Depth(BiTree T) {
+    if (T == NULL) {return 0;}
+    else {
+        int l = Depth(T->lChild);
+        int r = Depth(T->rChild);
+        return l > r ? l+1 : r+1;
+    }
+}
 
 
 } // namespace binary_tree

@@ -1,7 +1,8 @@
+#ifndef QUEUE_HPP_
+#define QUEUE_HPP_
+
 #include <iostream>
 #include <stdlib.h>
-
-namespace queue_using_linked_list {
 
 typedef struct LinkNode {
     int data;
@@ -81,15 +82,4 @@ bool DeQueue(LinkQueue &Q, int &e) {
     return true;
 }
 
-} // namespace queue_using_linked_list
-
-int main() {
-    using namespace queue_using_linked_list;
-
-    LinkQueue Q;
-    InitQueue(Q);
-
-    EnQueue(Q,5);
-    EnQueue(Q,2);
-
-}
+#endif // QUEUE_HPP_
