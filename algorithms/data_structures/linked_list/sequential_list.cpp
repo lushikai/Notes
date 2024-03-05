@@ -9,8 +9,6 @@
 #include <stdlib.h>
 #define InitSize 10
 
-namespace sequential_list {
-
 // struct SqList {
 //     //静态分配
 //     int data[10];
@@ -90,10 +88,8 @@ int LocateElem(SeqList L, int e) {
     return 0;
 }
 
-} // namespace sequential_list
 
 int main() {
-    using namespace sequential_list;
     SeqList L;
     
     InitList(L);

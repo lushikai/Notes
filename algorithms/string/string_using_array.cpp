@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #define MAXLEN 255
 
-namespace string_using_array {
-
 //静态数组(定长顺序存储)
 typedef struct {
     char ch[MAXLEN];
@@ -106,10 +104,9 @@ int KMP(SString S, SString T) {
     else {return 0;}
 }
 
-} // namespace string_using_array
 
 int main() {
-    using namespace string_using_array;
+    
     SString str1 = {"helloWorld",10};
     SString str2 = {"World",5};
     std::cout << Index(str1, str2) << std::endl;

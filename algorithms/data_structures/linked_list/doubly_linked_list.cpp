@@ -5,8 +5,6 @@
 #include <iostream>
 #include <stdlib.h>
 
-namespace doubly_linked_list {
-
 typedef struct DNode {
     int data;
     DNode *prior, *next;
@@ -57,10 +55,8 @@ void DestroyList(DLinkList &L) {
     L = NULL;
 }
 
-} // namespace doubly_linked_list
 
 int main() {
-    using namespace doubly_linked_list;
     DLinkList L;
 
     InitDLinkList(L);

@@ -1,9 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
 
-namespace circular_linked_list {
-namespace singly_lined_list {
-
 typedef struct LNode {
     int data;
     LNode *next;
@@ -26,9 +23,6 @@ bool isTail(LinkList L, LNode *p) {
     else {return false;}
 }
 
-} // namespace singly_lined_list
-
-namespace doubly_linked_list {
 
 typedef struct DNode {
     int data;
@@ -53,11 +47,8 @@ bool isTail(DLinkList L, DNode *p) {
     else {return false;}
 }
 
-} // namespace doubly_linked_list
-} // namespace circular_linked_list
 
 int main() {
-    using namespace circular_linked_list::singly_lined_list;
 
     LinkList L;
     InitList(L);

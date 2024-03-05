@@ -8,8 +8,6 @@
 #include <iostream>
 #define MaxSize 10
 
-namespace static_linked_list {
-
 // struct Node {
 //     int data;
 //     int next;
@@ -20,10 +18,8 @@ typedef struct {
     int next; //下一个元素数组下标
 } SLinkList[MaxSize];
 
-} // namespace static_linked_list
 
 int main() {
-    using namespace static_linked_list;
 
     // struct Node a[MaxSize];
 

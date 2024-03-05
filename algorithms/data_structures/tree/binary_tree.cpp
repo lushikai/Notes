@@ -13,20 +13,8 @@
 #include <iostream>
 #include <stdlib.h>
 #include "../queue/queue_using_linked_list.hpp"
-
-namespace binary_tree {
-
-struct ElemType {
-    int value;
-};
-
-typedef struct BiTNode {
-    ElemType data;
-    BiTNode *lChild, *rChild;
-    BiTNode *parent; //三叉链表
-}BiTNode, *BiTree;
-
-ElemType visit(BiTree T) {
+    
+char visit(BiTree T) {
     return T->data;
 }
 
@@ -59,13 +47,17 @@ void LevelOrder(BiTree T) {
     LinkQueue Q;
     InitQueue(Q);
     BiTree p;
-    // EnQueue(Q, T);
+    EnQueue(Q, T);
     while (!isEmpty(Q)) {
-        // DeQueue(Q, p);
+        DeQueue(Q, p);
         visit(p);
-        
+        if (p->lChild != NULL) {
+            EnQueue(Q, p->lChild);
+        }
+        else if (p->rChild != NULL) {
+            EnQueue(Q, p->rChild);
+        }
     }
-
 }
 
 int Depth(BiTree T) {
@@ -77,11 +69,7 @@ int Depth(BiTree T) {
     }
 }
 
-
-} // namespace binary_tree
-
 int main() {
-    using namespace binary_tree;
     BiTree root = NULL;
 
     //插入根结点

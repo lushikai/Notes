@@ -1,10 +1,13 @@
 # Directory
-1. [algorithm](#algorithm)
+1. [algorithms](#algorithms)
 2. [deep-learning](#deep-learning)
 3. [principles-of-computer-composition](#pocc)
 
-## algorithm <a name="algorithm"></a>
-- data_structure
+## algorithms <a name="algorithms"></a>
+- data_structures
+- string
+- search
+- sort
 
 ## deep-learning <a name="deep-learning"></a>
 - YOLOv8

@@ -3,23 +3,8 @@
  * n个不同元素进栈，出栈元素不同排列的个数为[1/(n+1)]*C(2n,n)
 */
 
-#ifndef STACK_HPP_
-#define STACK_HPP_
-
 #include <iostream>
-#define MaxSize 10
-
-typedef struct {
-    char data[MaxSize];
-    int top;
-}SqStack;
-
-//共享栈
-typedef struct {
-    int data[MaxSize];
-    int top0;
-    int top1;
-}ShStack;
+#include "stack_using_array.hpp"
 
 void InitStack(SqStack &S) {
     S.top = -1;
@@ -51,4 +36,7 @@ bool GetTop(SqStack S, char &e) {
     return true;
 }
 
-#endif // STACK_HPP_
+int main () {
+    SqStack S;
+    InitStack(S);
+}

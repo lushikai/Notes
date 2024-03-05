@@ -1,17 +1,6 @@
-#ifndef QUEUE_HPP_
-#define QUEUE_HPP_
-
 #include <iostream>
 #include <stdlib.h>
-
-typedef struct LinkNode {
-    int data;
-    LinkNode *next;
-}LinkNode;
-
-typedef struct {
-    LinkNode *rear, *front;
-}LinkQueue;
+#include "queue_using_linked_list.hpp"
 
 //不带头结点
 // void InitQueue(LinkQueue &Q) {
@@ -62,7 +51,7 @@ bool isEmpty(LinkQueue Q) {
     else {return false;}
 }
 
-void EnQueue(LinkQueue &Q, int e) {
+void EnQueue(LinkQueue &Q, BiTNode *e) {
     LinkNode *s = (LinkNode *)malloc(sizeof(LinkNode));
     s->data = e;
     s->next = NULL;
@@ -70,7 +59,7 @@ void EnQueue(LinkQueue &Q, int e) {
     Q.rear = s;
 }
 
-bool DeQueue(LinkQueue &Q, int &e) {
+bool DeQueue(LinkQueue &Q, BiTNode* &e) {
     if (Q.front == Q.rear) {return false;}
     LinkNode *p = Q.front->next;
     e = p->data;
@@ -82,4 +71,7 @@ bool DeQueue(LinkQueue &Q, int &e) {
     return true;
 }
 
-#endif // QUEUE_HPP_
+int main() {
+    LinkQueue Q;
+    InitQueue(Q);
+}

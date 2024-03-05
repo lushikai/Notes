@@ -8,8 +8,6 @@
 #include <iostream>
 #include <stdlib.h>
 
-namespace singly_linked_list {
-
 typedef struct LNode {
     int data; //数据域
     LNode *next; //指针域
@@ -205,10 +203,9 @@ LinkList HeadInsert(LinkList &L) {
     return L;
 }
 
-} // namespace singly_linked_list
 
 int main() {
-    using namespace singly_linked_list;
+    
     LinkList L;
 
     InitList(L);
