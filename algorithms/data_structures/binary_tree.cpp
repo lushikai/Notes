@@ -12,7 +12,8 @@
 
 #include <iostream>
 #include <stdlib.h>
-#include "../queue/queue_using_linked_list.hpp"
+#include "binary_tree_node.hpp"
+#include "queue_using_linked_list.hpp"
     
 char visit(BiTree T) {
     return T->data;

@@ -1,10 +1,7 @@
-#ifndef QUEUE_HPP_
-#define QUEUE_HPP_
+#ifndef LINKED_QUEUE_HPP_
+#define LINKED_QUEUE_HPP_
 
-typedef struct BiTNode {
-    char data;
-    BiTNode *lChild, *rChild;
-}BiTNode, *BiTree;
+#include "binary_tree_node.hpp"
 
 typedef struct LinkNode {
     BiTNode *data;
@@ -24,4 +21,4 @@ void EnQueue(LinkQueue &Q, BiTNode *e);
 
 bool DeQueue(LinkQueue &Q, BiTNode* &e);
 
-#endif // QUEUE_HPP_
+#endif // LINKED_QUEUE_HPP_
