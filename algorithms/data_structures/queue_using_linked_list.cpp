@@ -47,8 +47,7 @@ void InitQueue(LinkQueue &Q) {
 }
 
 bool isEmpty(LinkQueue Q) {
-    if (Q.front == Q.rear) {return true;}
-    else {return false;}
+    return Q.front == Q.rear;
 }
 
 void EnQueue(LinkQueue &Q, BiTNode *e) {

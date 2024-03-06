@@ -5,7 +5,7 @@
 
 typedef struct LinkNode {
     BiTNode *data;
-    LinkNode *next;
+    struct LinkNode *next;
 }LinkNode;
 
 typedef struct {

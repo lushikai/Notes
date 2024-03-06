@@ -3,7 +3,7 @@
 
 typedef struct BiTNode {
     char data;
-    BiTNode *lChild, *rChild;
+    struct BiTNode *lChild, *rChild;
 }BiTNode, *BiTree;
 
 #endif // TREE_NODE_

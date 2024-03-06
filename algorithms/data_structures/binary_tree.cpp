@@ -15,8 +15,8 @@
 #include "binary_tree_node.hpp"
 #include "queue_using_linked_list.hpp"
     
-char visit(BiTree T) {
-    return T->data;
+void visit(BiTNode *node) {
+    std::cout << node->data << " ";
 }
 
 //O(h)
@@ -55,7 +55,7 @@ void LevelOrder(BiTree T) {
         if (p->lChild != NULL) {
             EnQueue(Q, p->lChild);
         }
-        else if (p->rChild != NULL) {
+        if (p->rChild != NULL) {
             EnQueue(Q, p->rChild);
         }
     }
@@ -71,20 +71,31 @@ int Depth(BiTree T) {
 }
 
 int main() {
-    BiTree root = NULL;
 
-    //插入根结点
-    root = (BiTree) malloc(sizeof(BiTNode));
-    root->data = {1};
+    // 创建根结点
+    BiTree root = (BiTree)malloc(sizeof(BiTNode));
+    root->data = 'A'; // 假设根结点数据为 'A'
     root->lChild = NULL;
     root->rChild = NULL;
 
-    //插入新结点
+    // 创建新结点并插入左子树
     BiTNode *p = (BiTNode *)malloc(sizeof(BiTNode));
-    p->data = {2};
+    p->data = 'B'; // 假设新结点数据为 'B'
     p->lChild = NULL;
     p->rChild = NULL;
     root->lChild = p;
-    
+
+    // 在这里可以继续插入更多的结点或执行其他操作
+
+    // 执行层序遍历
+    std::cout << "Level Order Traversal: ";
+    LevelOrder(root);
+    std::cout << std::endl;
+
+    // 释放内存
+    free(p);
+    free(root);
+
+    return 0;
     
 }
