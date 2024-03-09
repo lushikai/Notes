@@ -74,18 +74,16 @@ int main() {
 
     // 创建根结点
     BiTree root = (BiTree)malloc(sizeof(BiTNode));
-    root->data = 'A'; // 假设根结点数据为 'A'
+    root->data = 'A';
     root->lChild = NULL;
     root->rChild = NULL;
 
     // 创建新结点并插入左子树
     BiTNode *p = (BiTNode *)malloc(sizeof(BiTNode));
-    p->data = 'B'; // 假设新结点数据为 'B'
+    p->data = 'B';
     p->lChild = NULL;
     p->rChild = NULL;
     root->lChild = p;
-
-    // 在这里可以继续插入更多的结点或执行其他操作
 
     // 执行层序遍历
     std::cout << "Level Order Traversal: ";
