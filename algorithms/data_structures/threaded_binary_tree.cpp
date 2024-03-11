@@ -2,8 +2,8 @@
  * 存储结构：
  * lTag==1时，表示lChild指向前驱；lTag==0时，表示lChild指向左孩子
  * rTag==1时，表示rChild指向前驱；rTag==0时，表示rChild指向右孩子
- * 对应tag位为0时，表示指针指向其孩子
- * 对应tag位为1时，表示指针为线索
+ * 对应tag位为0时，表示指针指向其孩子，没有被线索化
+ * 对应tag位为1时，表示指针为线索，被线索化
 */
 
 #include <iostream>
@@ -77,6 +77,53 @@ void CreatePreThread(ThreadTree T) {
 //         InThread(p->rChild, pre);
 //     }
 // }
+
+//中序线索二叉树找后继
+ThreadNode *FirstNode(ThreadNode *p) {
+    while(p->lTag == 0) {
+        p = p->lChild;
+    }
+    return p;
+}
+
+ThreadNode *NextNode(ThreadNode *p) {
+    if (p->rTag == 0) {
+        return FirstNode(p->rChild);
+    }
+    else {
+        return p->rChild;
+    }
+}
+
+void InOrder(ThreadNode *T) {
+    for (ThreadNode *p = FirstNode(T); p != NULL; p = NextNode(p)) {
+        visit(p);
+    }
+}
+
+//中序线索二叉树找前驱
+ThreadNode *LastNode(ThreadNode *p) {
+    while (p->rTag == 0) {
+        p = p->rChild;
+    }
+    return p;
+}
+
+ThreadNode *PreNode(ThreadNode *p) {
+    if (p->lTag == 0) {
+        return LastNode(p->lChild);
+    }
+    else {
+        return p->lChild;
+    }
+}
+
+void RevInOrder(ThreadNode *T) {
+    for (ThreadNode *p = LastNode(T); p != NULL; p = PreNode(p)) {
+        visit(p);
+    }
+}
+
 
 int main() {
     
