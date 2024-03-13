@@ -8,7 +8,6 @@
 - string
 - search
 - sort
-- graph
 
 ## deep-learning <a name="deep-learning"></a>
 - YOLOv8
