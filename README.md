@@ -5,7 +5,6 @@
 
 ## algorithms <a name="algorithms"></a>
 - data_structures
-- string
 - search
 - sort
 

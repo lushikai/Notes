@@ -26,3 +26,42 @@
  * 有向树：一个顶点入度为0，其余顶点的入度均为1的有向图
 */
 
+#include <iostream>
+#define MaxVertexNum 100
+
+/**
+ * 邻接矩阵存储：对称矩阵
+ * 无向图求度：第i个结点的度 = 第i行或第i列的非零元素个数
+ * 有向图求度：第i个结点的出度 = 第i行的非零元素个数；
+ *            第i个结点的入度 = 第i列的非零元素个数；
+ *            第i个结点的度 = 第i行，第i列的非零元素个数之和
+ * 空间复杂度：O(|V|^2)，只和顶点数有关，与实际边数无关
+*/
+typedef struct {
+    char Vex[MaxVertexNum]; //顶点
+    int Edge[MaxVertexNum][MaxVertexNum]; //邻接矩阵
+    int vexNum, arcNum; //图当前顶点数和边数
+}MGraph;
+
+/**
+ * 邻接表法
+*/
+
+//边
+typedef struct ArcNode {
+    int adjVex; //边指向哪个结点
+    struct ArcNode *next; //指向下一条边或弧
+}ArcNode;
+
+//顶点
+typedef struct VNode {
+    char data;
+    ArcNode *first; //第一条边
+}VNode, AdjList[MaxVertexNum];
+
+//图
+typedef struct {
+    AdjList vertices;
+    int vexNum, arcNum;
+}ALGraph;
+
