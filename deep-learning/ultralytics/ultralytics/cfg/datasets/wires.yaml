@@ -1,9 +1,0 @@
-path: /kaggle/input/wires-1/wires_1/wires_1 # dataset root dir
-train: images/train
-val: images/val
-
-nc: 2
-# Classes
-names:
-  0: pass
-  1: fail
