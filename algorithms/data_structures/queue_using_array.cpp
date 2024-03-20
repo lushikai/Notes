@@ -3,12 +3,7 @@
 */
 
 #include <iostream>
-#define MaxSize 10
-
-typedef struct {
-    int data[MaxSize];
-    int front, rear;
-}SqQueue;
+#include "queue_using_array.hpp"
 
 void InitQueue(SqQueue &Q) {
     Q.rear = Q.front = 0;

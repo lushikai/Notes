@@ -27,25 +27,25 @@
 */
 
 #include <iostream>
+#include "queue_using_array.hpp"
 #define MaxVertexNum 100
+#define MAX_VERTEX_NUM false
 
-/**
- * 邻接矩阵存储：对称矩阵
- * 无向图求度：第i个结点的度 = 第i行或第i列的非零元素个数
- * 有向图求度：第i个结点的出度 = 第i行的非零元素个数；
- *            第i个结点的入度 = 第i列的非零元素个数；
- *            第i个结点的度 = 第i行，第i列的非零元素个数之和
- * 空间复杂度：O(|V|^2)，只和顶点数有关，与实际边数无关
-*/
+// 邻接矩阵存储：对称矩阵
+// 无向图求度：第i个结点的度 = 第i行或第i列的非零元素个数
+// 有向图求度：第i个结点的出度 = 第i行的非零元素个数；
+//            第i个结点的入度 = 第i列的非零元素个数；
+//            第i个结点的度 = 第i行，第i列的非零元素个数之和
+// 空间复杂度：O(|V|^2)，只和顶点数有关，与实际边数无关
+
 typedef struct {
     char Vex[MaxVertexNum]; //顶点
     int Edge[MaxVertexNum][MaxVertexNum]; //邻接矩阵
     int vexNum, arcNum; //图当前顶点数和边数
 }MGraph;
 
-/**
- * 邻接表法
-*/
+// 邻接表法
+// 空间复杂度：无向图O(|V|+2|E|)，有向图O(|V|+|E|)
 
 //边
 typedef struct ArcNode {
@@ -64,4 +64,76 @@ typedef struct {
     AdjList vertices;
     int vexNum, arcNum;
 }ALGraph;
+
+// 十字链表用于存储有向图
+// O(|V|+|E|)
+
+// 邻接多重表存储无向图
+// O(|V|+|E|)
+
+bool visited[MAX_VERTEX_NUM]; //访问标记数组
+
+// void visit(int v) {
+
+// }
+
+//找到与一个顶点相邻的所有顶点
+//标记被访问过的顶点
+//辅助队列
+
+//邻接矩阵BFS
+//时间复杂度O(|V|^2)
+// void BFS(MGraph G, int v) {
+//     visit(v);
+//     visited[v] = true;
+//     EnQueue(Q, v);
+//     while (!isEmpty(Q)) {
+//         DeQueue(Q, v);
+//         for (w = FirstNeighbor(G, v); w >= 0; w = NextNeighbor(G, v ,w)) {
+//             if (!visited[w]) {
+//                 visit(w);
+//                 visited[w] = true;
+//                 EnQueue(Q, w);
+//             }
+//         }
+//     }
+// }
+
+//非连通图
+// void BFSTraverse(MGraph G) {
+//     for (int i = 0; i < G.vexNum; ++i) {
+//         visited[i] = false;
+//     }
+//     InitQueue(Q);
+//     for (int i = 0; i < G.vexNum; ++i) {
+//         if (!visited[i]) {
+//             BFS(G, i);
+//         }
+//     }
+// }
+
+//时间复杂度=访问各结点所需时间+探索各条边所需时间
+//O(|V|^2)
+
+// void DFS(MGraph G, int v) {
+//     visit(v);
+//     visited[v] = true;
+//     for (w = FirstNeighbor(G, v); w >= 0; w = NextNeighbor(G, v ,w)) {
+//         if (!visited[w]) {
+//             DFS(G, w);
+//         }
+//     }
+// }
+
+//非连通图
+// void DFSTraverse(MGraph G) {
+//     for (v = 0; v < G.vexNum; ++v) {
+//         visited[v] = false;
+//     }
+//     for (v = 0; v < G.vexNum; ++v) {
+//         if (!visited[v]) {
+//             DFS(G, v);
+//         }
+//     }
+// }
 
