@@ -1,6 +1,6 @@
 # Table of Contents:
 1. [conda](#conda)  
-2. [WSL](#wsl)
+2. [WSL2](#wsl2)
 3. [Ubuntu](#ubuntu)
 
 ## conda <a name="conda"></a>
@@ -27,13 +27,15 @@ source ~/.bashrc
 pip install xxx -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
-## WSL <a name="wsl"></a>
-### Install wsl and Export the disk
+## WSL2 <a name="wsl2"></a>
+### Install wsl2 and Export the disk
 ```
-wsl --install
-wsl --export Ubuntu D:\wsl\ubuntu.tar
+wsl.exe --update
+wsl --set-default-version 2
+wsl --install -d Ubuntu
+wsl --export Ubuntu E:\wsl\ubuntu.tar
 wsl --unregister Ubuntu
-wsl --import Ubuntu D:\wsl\ D:\wsl\ubuntu.tar --version 2
+wsl --import Ubuntu E:\wsl\ E:\wsl\ubuntu.tar --version 2
 wsl --shutdown
 Ubuntu.exe config --default-user xxx
 ```
