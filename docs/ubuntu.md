@@ -1,47 +1,4 @@
-# Table of Contents:
-1. [conda](#conda)  
-2. [WSL2](#wsl2)
-3. [Ubuntu](#ubuntu)
-
-## conda <a name="conda"></a>
-### Install miniconda on linux
-```
-mkdir -p ~/miniconda3
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
-bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
-rm -rf ~/miniconda3/miniconda.sh
-~/miniconda3/bin/conda init bash
-~/miniconda3/bin/conda init zsh
-```
-
-### Set PYTHONPATH
-```
-vim ~/.bashrc
-export PYTHONPATH=${PYTHONPATH}:/home/user/xxx
-:wq
-source ~/.bashrc
-```
-
-### Change the pip source
-```
-pip install xxx -i https://pypi.tuna.tsinghua.edu.cn/simple
-```
-
-## WSL2 <a name="wsl2"></a>
-### Install wsl2 and Export the disk
-```
-wsl.exe --update
-wsl --set-default-version 2
-wsl --install -d Ubuntu
-wsl --export Ubuntu E:\wsl\ubuntu.tar
-wsl --unregister Ubuntu
-wsl --import Ubuntu E:\wsl\ E:\wsl\ubuntu.tar --version 2
-wsl --shutdown
-Ubuntu.exe config --default-user xxx
-```
-
-## Ubuntu <a name="ubuntu"></a>
-### Change the Ubuntu source
+# Change the Ubuntu source
 ```
 sudo vim /etc/apt/sources.list
 ```
