@@ -49,3 +49,12 @@ PC->IR->CU
 
 ## 工作流程
 (PC) = 0，指向第一条指令的存储地址  
+(PC)->MAR，(MAR) = 0  
+M(MAR)->MDR  
+(MDR)->IR  
+OP(IR)->CU，指令操作码送到CU，CU分析指令  
+Ad(IR)->MAR  
+M(MAR)->MDR  
+(MDR)->ACC  
+(PC)++
+

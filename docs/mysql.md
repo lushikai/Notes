@@ -40,13 +40,12 @@ select host,user,authentication_string from mysql.user;
 # Set root password
 ```
 use mysql; 
-ALTER user 'root'@'localhost' IDENTIFIED BY 'root';
+ALTER user 'root'@'localhost' IDENTIFIED BY 'xxxx';
 FLUSH PRIVILEGES;
 ```
 
 # tips
 ```
-mysqld –initialize-insecure
 mysqld –initialize
 mysqld -remove
 net stop mysql
