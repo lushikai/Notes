@@ -31,7 +31,11 @@ MDR寄存器位数 = 存储字长
 eg：MAR = 4位->共2^4个存储单元(0000~1111)  
 eg：MAR = 16位->每个存储单元可存储16bit，1word = 16bit  
 1Byte = 8bit  
-1b = 1bit
+1b = 1bit  
+总容量 = 存储单元个数 x 存储字长 bit  
+总容量 = 存储单元个数 x 存储字长/8 Byte  
+eg：MAR32位，MDR8位，总容量 = 2^32 x 8 bit = 4GB  
+1KB = 1024B  
 
 ## 运算器
 运算器 = ACC + MQ + ALU + X  
@@ -42,19 +46,30 @@ X：通用操作数寄存器，用于存放操作数
 
 ## 控制器
 控制器 = CU + IR + PC  
-CU：控制单元，分析指令，给出控制信号  
+CU：控制单元，分析指令，给出控制信号，核心部件  
 IR：指令寄存器，存放当前执行的指令  
 PC：程序计数器，存放下一条指令地址，自动+1  
 PC->IR->CU  
 
 ## 工作流程
 (PC) = 0，指向第一条指令的存储地址  
-(PC)->MAR，(MAR) = 0  
-M(MAR)->MDR  
-(MDR)->IR  
-OP(IR)->CU，指令操作码送到CU，CU分析指令  
-Ad(IR)->MAR  
-M(MAR)->MDR  
-(MDR)->ACC  
-(PC)++
+#1：(PC)->MAR  
+#2：M(MAR)->MDR  
+#3：(MDR)->IR  
+#4：取指令结束，(PC)+1  
+#5：OP(IR)->CU，指令操作码送到CU，CU分析指令  
+分析指令结束  
+#6：Ad(IR)->MAR  
+#8：M(MAR)->MDR  
+#9：(MDR)->ACC  
+执行指令结束，不同指令步骤不同  
 
+## CPU
+CPU主频：CPU内数字脉冲信号振荡的频率，2.10GHz  
+CPU主频 = 1 / CPU时钟周期  
+CPI：执行一条指令所需的时钟周期数  
+IPS：每秒执行多少条指令  
+IPS = 主频 / CPI  
+FLOPS：每秒执行多少次浮点运算  
+KFLOPS：
+  
