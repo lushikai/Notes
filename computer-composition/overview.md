@@ -72,4 +72,4 @@ IPS：每秒执行多少条指令
 IPS = 主频 / CPI  
 FLOPS：每秒执行多少次浮点运算  
 KFLOPS：
-  
+
