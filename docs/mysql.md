@@ -16,6 +16,9 @@ sql_mode = NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
 ```
 mysqld --initialize-insecure
 ```
+```
+mysqld –-initialize
+```
 
 # Install
 ```
@@ -44,9 +47,10 @@ ALTER user 'root'@'localhost' IDENTIFIED BY 'xxxx';
 FLUSH PRIVILEGES;
 ```
 
-# tips
+# Uninstall
 ```
-mysqld –initialize
-mysqld -remove
 net stop mysql
+```
+```
+mysqld --remove mysql
 ```
