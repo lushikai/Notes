@@ -10,3 +10,12 @@ wsl --shutdown
 wsl -l -v
 Ubuntu.exe config --default-user xxx
 ```
+
+# Shrink wsl2 space
+```
+wsl --shutdown
+win+r diskpart
+help select vdisk
+select vdisk file="E:\wsl2\ext4.vhdx"
+compact vdisk
+```
