@@ -15,7 +15,9 @@ Ubuntu.exe config --default-user xxx
 ```
 wsl --shutdown
 win+r diskpart
-help select vdisk
 select vdisk file="E:\wsl2\ext4.vhdx"
+attach vdisk readonly
 compact vdisk
+detach vdisk
+exit
 ```
