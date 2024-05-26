@@ -22,7 +22,7 @@ detach vdisk
 exit
 ```
 
-# .wslconfig
+# default .wslconfig
 ```
 # Settings apply across all Linux distros running on WSL 2
 [wsl2]
