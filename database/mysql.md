@@ -1,11 +1,11 @@
-# mysql.ini
+# mysql.ini file
 ```
 [mysql]
 default-character-set=utf8
 [mysqld]
 port = xxxx
-basedir = D:\Downloads\MySQL\mysql-8.0.36-winx64
-datadir = D:\Downloads\MySQL\mysql-8.0.36-winx64\\data
+basedir = D:\MySQL\mysql-8.0.36-winx64
+datadir = D:\MySQL\mysql-8.0.36-winx64\\data
 max_connections = 20
 character-set-server = utf8
 default-storage-engine = INNODB

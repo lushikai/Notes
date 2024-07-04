@@ -1,5 +1,1 @@
-# Notes：
-algorithms  
-database  
-deep-learning  
-linux  
+# Keep a record of my learning journey
