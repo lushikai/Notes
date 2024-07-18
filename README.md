@@ -1,1 +1,1 @@
-# Keep a record of my learning journey
+# Notes
