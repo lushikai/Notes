@@ -3,9 +3,9 @@
 wsl.exe --update
 wsl --set-default-version 2
 wsl --install -d Ubuntu
-wsl --export Ubuntu E:\wsl2\ubuntu.tar
+wsl --export Ubuntu D:\wsl2\ubuntu.tar
 wsl --unregister Ubuntu
-wsl --import Ubuntu E:\wsl2\ E:\wsl2\ubuntu.tar --version 2
+wsl --import Ubuntu D:\wsl2\ D:\wsl2\ubuntu.tar --version 2
 wsl --shutdown
 wsl -l -v
 Ubuntu.exe config --default-user xxx
@@ -39,7 +39,7 @@ sudo apt-get update
 ```
 wsl --shutdown
 win+r diskpart
-select vdisk file="E:\wsl2\ext4.vhdx"
+select vdisk file="D:\wsl2\ext4.vhdx"
 attach vdisk readonly
 compact vdisk
 detach vdisk
