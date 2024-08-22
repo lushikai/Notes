@@ -18,3 +18,14 @@ bin/start
 bin/stop
 http://localhost/launchpad
 ```
+
+# Install full texlive
+```
+docker exec -it sharelatex bash
+cd /usr/local/texlive
+wget http://mirror.ctan.org/systems/texlive/tlnet/update-tlmgr-latest.sh
+sh update-tlmgr-latest.sh -- --upgrade
+tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet
+tlmgr update --all
+tlmgr install scheme-full
+```

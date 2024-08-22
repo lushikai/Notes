@@ -35,7 +35,7 @@ deb http://security.ubuntu.com/ubuntu/ jammy-security main restricted universe m
 sudo apt-get update
 ```
 
-# Shrink wsl2 space
+# Shrink disk space
 ```
 wsl --shutdown
 win+r diskpart
