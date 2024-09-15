@@ -45,3 +45,10 @@ compact vdisk
 detach vdisk
 exit
 ```
+
+# .wslconfig
+```
+[wsl2]
+swap=8GB
+swapfile="D:\\wsl2\\swap.vhdx"
+```
