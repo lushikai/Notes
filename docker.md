@@ -27,13 +27,14 @@ sudo vim /etc/docker/daemon.json
 ```
 ```
 {
-  "registry-mirrors": [
-    "",
-  ]
+  "registry-mirrors": [""]
 }
 ```
 ```
-sudo service docker restart
+sudo systemctl daemon-reload
+```
+```
+sudo systemctl restart docker
 ```
 ```
 sudo docker info
