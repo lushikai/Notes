@@ -28,8 +28,7 @@ sudo vim /etc/docker/daemon.json
 ```
 {
   "registry-mirrors": [
-    "https://registry.aliyuncs.com",
-    "https://docker.nju.edu.cn"
+    "",
   ]
 }
 ```
