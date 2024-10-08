@@ -28,8 +28,6 @@ sudo vim /etc/docker/daemon.json
 ```
 {
   "registry-mirrors": [
-    "https://docker.m.daocloud.io",
-    "https://dockerhub.icu",
     "https://registry.aliyuncs.com",
     "https://docker.nju.edu.cn"
   ]
