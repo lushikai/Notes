@@ -46,6 +46,7 @@ git clone https://github.com/overleaf/toolkit.git ./overleaf-toolkit
 cd ./overleaf-toolkit
 bin/init
 bin/up
+docker update --restart=no $(docker ps -a -q)
 bin/start
 bin/stop
 http://localhost/launchpad
