@@ -1,3 +1,5 @@
+<!-- Author: lushikai -->
+
 # Install miniconda on linux
 ```
 mkdir -p ~/miniconda3
